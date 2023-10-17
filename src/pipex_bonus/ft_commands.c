@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header_bonus.h"
 
 void	ft_cmd1(t_node *node, char **argv, char **envp)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header_bonus.h"
 
 static	int	words_number(char const *s, char c)
 {

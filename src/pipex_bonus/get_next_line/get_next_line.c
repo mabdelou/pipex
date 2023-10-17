@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../../lib/get_next_line.h"
 
 char	*ft_cutstr(char *s)
 {

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   close_fds.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabdelou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 21:36:15 by mabdelou          #+#    #+#             */
-/*   Updated: 2021/11/16 14:13:38 by mabdelou         ###   ########.fr       */
+/*   Created: 2022/04/04 17:20:33 by mabdelou          #+#    #+#             */
+/*   Updated: 2022/04/04 17:20:36 by mabdelou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header_bonus.h"
 
-static	void	print_str(char a, int fd)
+void	close_fds(t_node *node)
 {
-	write(fd, &a, 1);
+	int	a;
+
+	a = -1;
+	while (++a < (node->argc - 4) * 2)
+		close(node->fds[a]);
 }
 
-void	ft_putstr_fd(char *s, int fd)
+void	close_fd(t_node *node)
 {
-	int	b;
+	int	a;
 
-	if (s != NULL)
-	{
-		b = 0;
-		while (s[b])
-		{
-			print_str(s[b], fd);
-			b++;
-		}
-	}
+	a = -1;
+	while (++a < (node->argc - 4) * 2)
+		close(node->fd[a]);
 }

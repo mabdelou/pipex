@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header_bonus.h"
 
 void	wait_pross(t_node *node)
 {

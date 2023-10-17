@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-#include "./get_next_line/get_next_line.h"
+#include "../../lib/header_bonus.h"
+#include "../../lib/get_next_line.h"
 
 void	ft_drr(t_node *node)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header_bonus.h"
 
 size_t	ft_strlen( const char *s)
 {

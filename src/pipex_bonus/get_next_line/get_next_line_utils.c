@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabdelou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 17:37:32 by mabdelou          #+#    #+#             */
-/*   Updated: 2021/11/27 18:32:03 by mabdelou         ###   ########.fr       */
+/*   Created: 2021/11/27 17:46:38 by mabdelou          #+#    #+#             */
+/*   Updated: 2021/12/01 15:32:43 by mabdelou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../../../lib/get_next_line.h"
 
-int	ft_strlen(char *s)
+int	ft_strlenn(char *s)
 {
 	int	a;
 
@@ -22,6 +22,11 @@ int	ft_strlen(char *s)
 	while (s[a])
 		a++;
 	return (a);
+}
+
+static	void	print_str(char a, int fd)
+{
+	write(fd, &a, 1);
 }
 
 int	return_trorfo(char *str)
@@ -37,7 +42,7 @@ int	return_trorfo(char *str)
 	return (1);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoinn(char *s1, char *s2)
 {
 	int		a;
 	int		b;
@@ -51,7 +56,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (s2 == NULL)
 		return (NULL);
-	c = ft_strlen(s1) + ft_strlen(s2);
+	c = ft_strlenn(s1) + ft_strlenn(s2);
 	a = -1;
 	arr = (char *)malloc((c + 1) * sizeof(char));
 	if (arr == NULL)

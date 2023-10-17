@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_node.c                                        :+:      :+:    :+:   */
+/*   do_some_malloc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabdelou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 17:23:28 by mabdelou          #+#    #+#             */
-/*   Updated: 2022/04/04 17:23:31 by mabdelou         ###   ########.fr       */
+/*   Created: 2022/04/04 17:22:30 by mabdelou          #+#    #+#             */
+/*   Updated: 2022/04/04 17:22:33 by mabdelou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header_bonus.h"
 
-void	fill_node(t_node *node, char **argv, char **envp, int argc)
+void	ft_do_some_malloc(t_node *node)
 {
-	node->argc = argc;
-	node->argm_cmd1 = ft_split(argv[3], ' ');
-	node->argm_cmd2 = ft_split(argv[4], ' ');
-	node->argv = argv;
-	node->envp = envp;
-	node->heredoc_name = argv[2];
-	node->loop = -1;
-	node->result_of_cmd = -1;
-	node->origin_path = ft_take_path(envp);
-	node->all_path = ft_split(node->origin_path, ':');
+	node->fds = malloc(sizeof(int) * (node->argc - 4) * 2);
+	node->arg_cmds = malloc(sizeof(char **) * (node->argc - 3));
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header_bonus.h"
 
 char	*ft_srjn2(char const *s2, int a, int c, char *arr)
 {

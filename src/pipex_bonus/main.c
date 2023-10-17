@@ -10,33 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header_bonus.h"
 
 int	main(int argc, char **argv, char **envp)
 {
 	t_node	node;
 
 	ft_argumment_error(argc);
-	node.argm_cmd1 = ft_split(argv[2], ' ');
-	node.argm_cmd2 = ft_split(argv[3], ' ');
-	node.loop = -1;
-	node.result_of_cmd = -1;
-	node.origin_path = ft_take_path(envp);
-	node.all_path = ft_split(node.origin_path, ':');
-	if (pipe(node.fd) == -1)
+	fill_node(&node, argv, envp, argc);
+	if (!ft_strncmp("here_doc", argv[1]))
+		if (ft_heredoc(&node))
+			return (0);
+	ft_do_some_malloc(&node);
+	if (make_pipes(&node))
 		return (1);
-	node.pid = fork();
-	if (node.pid == -1)
-		return (1);
-	if (node.pid == 0)
-		ft_cmd1(&node, argv, envp);
-	if (fork() == 0)
-		ft_cmd2(&node, argv, envp);
-	else
-	{
-		wait(NULL);
-		close(node.fd[1]);
-		close(node.fd[0]);
-		wait(NULL);
-	}
+	save_cmds(&node);
+	multi_pipe(&node);
+	return (0);
 }

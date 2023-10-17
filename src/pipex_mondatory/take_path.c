@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header.h"
 
 int	ft_calc_size_of_paht(char **envp)
 {

@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   save_cmds.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabdelou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 09:50:07 by mabdelou          #+#    #+#             */
-/*   Updated: 2021/11/15 21:54:25 by mabdelou         ###   ########.fr       */
+/*   Created: 2022/04/04 17:43:50 by mabdelou          #+#    #+#             */
+/*   Updated: 2022/04/04 17:43:51 by mabdelou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../../lib/header_bonus.h"
 
-size_t	ft_strlen( const char *s)
+void	save_cmds(t_node *node)
 {
-	size_t	a;
+	int	a;
 
-	a = 0;
-	while (s[a])
-		a++;
-	return (a);
+	a = -1;
+	while (++a < node->argc - 3)
+		node->arg_cmds[a] = ft_split(node->argv[a + 2], ' ');
 }
